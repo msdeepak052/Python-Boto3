@@ -33,24 +33,70 @@ To install **Python** on your system, follow the instructions based on your oper
 ---
 
 ### 🟢 **For Ubuntu / Debian (Linux):**
+To install Python and make `python` point to Python 3 on Ubuntu, follow these steps:
 
-1. **Update Repositories:**
+---
 
-   ```bash
-   sudo apt update
-   ```
+### ✅ Step 1: **Update your system**
 
-2. **Install Python:**
+```bash
+sudo apt update && sudo apt upgrade -y
+```
 
-   ```bash
-   sudo apt install python3 -y
-   ```
+---
 
-3. **Verify Installation:**
+### ✅ Step 2: **Install Python 3**
 
-   ```bash
-   python3 --version
-   ```
+Ubuntu typically comes with Python 3 pre-installed. But just to be sure:
+
+```bash
+sudo apt install python3 -y
+```
+
+---
+
+### ✅ Step 3: **Install Python 3's package manager (pip)**
+
+```bash
+sudo apt install python3-pip -y
+```
+
+---
+
+### ✅ Step 4: **Make `python` point to `python3`**
+
+Ubuntu no longer creates a `python` symlink by default. To manually link:
+
+```bash
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
+```
+
+Now verify:
+
+```bash
+python --version
+```
+
+You should see output like:
+
+```
+Python 3.x.x
+```
+
+---
+
+### ✅ Optional: Set default if multiple python versions
+
+```bash
+sudo update-alternatives --config python
+```
+
+Choose the appropriate Python 3 version if prompted.
+
+---
+
+Let me know if you also want to make `pip` point to `pip3`.
+
 
 ---
 
